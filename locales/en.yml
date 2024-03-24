@@ -1,0 +1,36 @@
+browserNotSupportSpeech: Browser not support speech
+common:
+  appName: Chm Novel Reader
+  confirm: Confirm
+  cancel: Cancel
+  feedback: Feedback
+  openFile: Open File
+  fileTypeNotSupported: File type not supported
+  noFileOpen: No file open
+reader:
+  pause: Pause
+  play: Play
+  resume: Resume
+  stop: Stop
+  next: Next
+  previous: Previous
+  rate: Rate
+  chapterWordCount: Chapter Words
+  chapterSplitter: Chapter Splitter
+  editChapterSplitter: Edit Chapter Splitter
+  speaker: Speaker
+  autoscroll: Auto scroll
+style:
+  bgImage: Background Image
+  contentWidth: Content Width
+  fontSize: Font Size
+  imageOpacity: Image Opacity
+  lineHeight: Line Height
+  source: Source
+  Instructions: Instructions
+Instructions:
+  l1: 1. Recommend using the Edge browser because it has many online speakers available.
+  l2: Edge Official Website
+  l3: 2. Search for "Chinese" in the speaker list to filter out Chinese speakers.
+  l4: 3. Speakers labeled with "Online" are available for online use.
+  l5: 4. Online speakers may sometimes be unstable and may stop reading abruptly. Clicking again on the line where the reading stopped will resume playback. (Offline speakers do not have this issue.)

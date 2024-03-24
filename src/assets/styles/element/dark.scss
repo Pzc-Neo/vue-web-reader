@@ -1,0 +1,30 @@
+$--colors: (
+    'primary': (
+        'base': #589ef8,
+    ),
+);
+
+@forward 'element-plus/theme-chalk/src/dark/var.scss' with (
+    $colors: $--colors,
+    $bg-color: (
+        'page': #0a0a0a,
+        '': #262f3b,
+        'overlay': #1d1e1f,
+    ),
+    $text-color: (
+        'regular': #b5b5b5,
+        'placeholder': #cecece,
+    ),
+    $fill-color: (
+        'blank': rgba(68, 68, 68, 0.137),
+    )
+);
+
+:root {
+    --main-text-color: black;
+    --main-border-color: #e9e9e9;
+}
+html.dark {
+    --main-text-color: #b5b5b5;
+    --main-border-color: rgba(68, 68, 68, 0.671);
+}
