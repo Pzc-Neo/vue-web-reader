@@ -9,7 +9,7 @@ import { useReaderStore } from '@/store/reader';
 const { t } = useI18n();
 const readerStore = useReaderStore();
 const goToGitHub = () => {
-    window.open('https://github.com/pzc-neo/vue-novel-reader');
+    window.open('https://github.com/Pzc-Neo/vue-web-reader');
 };
 </script>
 <template>
