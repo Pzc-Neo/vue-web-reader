@@ -24,10 +24,13 @@ style:
   bgImage: Background Image
   contentWidth: Content Width
   fontSize: Font Size
+  fontFamily: Font Family
   imageOpacity: Image Opacity
   lineHeight: Line Height
-  source: Source
+  website: Website
   Instructions: Instructions
+  editFontList: Edit Font List
+  downloadSoft: Download software that can get the system's font list.
 Instructions:
   l1: 1. Recommend using the Edge browser because it has many online speakers available.
   l2: Edge Official Website

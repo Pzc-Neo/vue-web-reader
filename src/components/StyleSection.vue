@@ -2,20 +2,30 @@
     <div class="style_section">
         <div>
             <div class="setting_block">
-                <span class="title">字体</span>
-                <el-select
-                    v-model="styleStore.selectedFont"
-                    placeholder="请选择字体"
-                    filterable
-                    @change="styleStore.save()"
-                >
-                    <el-option
-                        v-for="font in styleStore.fontList"
-                        :key="font"
-                        :label="font"
-                        :value="font"
-                    ></el-option>
-                </el-select>
+                <span class="title mb1">{{ t('style.fontFamily') }}</span>
+                <div class="w100% flex flex-row">
+                    <el-select
+                        v-model="styleStore.selectedFont"
+                        class="flex-1"
+                        placeholder="请选择字体"
+                        filterable
+                        @change="styleStore.save()"
+                    >
+                        <el-option
+                            v-for="font in styleStore.fontList"
+                            :key="font"
+                            :label="font"
+                            :value="font"
+                        ></el-option>
+                    </el-select>
+                    <el-button
+                        class="pl2 pr2"
+                        :title="t('style.editFontList')"
+                        @click="showEditorFontsDialog"
+                    >
+                        <span i-carbon-edit></span>
+                    </el-button>
+                </div>
             </div>
             <div class="setting_block">
                 <span class="title">{{ t('style.contentWidth') }}</span>
@@ -46,10 +56,10 @@
                 />
             </div>
             <div class="setting_block">
-                <span class="title"
+                <span class="title mb1"
                     >{{ t('style.bgImage') }}
                     <a href="https://www.pexels.com/" target="_blank"
-                        >({{ t('style.source') }})</a
+                        >({{ t('style.website') }})</a
                     ></span
                 >
                 <el-input
@@ -86,6 +96,37 @@
                 <div class="line">{{ t('Instructions.l5') }}</div>
             </div>
         </div>
+        <el-dialog
+            v-model="isShowEditorFontsDialog"
+            :title="t('style.editFontList')"
+            width="300px"
+            draggable
+        >
+            <el-input
+                v-model="theInputText"
+                type="textarea"
+                :rows="12"
+            ></el-input>
+            <template #footer>
+                <a
+                    class="inline-block mb2 color-#555 underline"
+                    href="https://github.com/Pzc-Neo/wpf-get-fonts/releases/download/v1.0.0/wpf-get-fonts-v1.0.0.zip"
+                    target="_blank"
+                    >{{ t('style.downloadSoft') }}</a
+                >
+                <div class="dialog_footer">
+                    <el-button @click="isShowEditorFontsDialog = false">{{
+                        t('common.cancel')
+                    }}</el-button>
+                    <el-button
+                        type="primary"
+                        @click="onEditorFontsDialogConfirm"
+                    >
+                        {{ t('common.confirm') }}
+                    </el-button>
+                </div>
+            </template>
+        </el-dialog>
     </div>
 </template>
 
@@ -94,6 +135,24 @@ import { useStyleStore } from '@/store/style';
 const { t } = useI18n();
 
 const styleStore = useStyleStore();
+const isShowEditorFontsDialog = ref(false);
+const theInputText = ref('');
+const showEditorFontsDialog = () => {
+    theInputText.value = styleStore.fontList?.join('\n');
+    isShowEditorFontsDialog.value = true;
+};
+const onEditorFontsDialogConfirm = () => {
+    if (theInputText.value.trim() === '') {
+        styleStore.fontList = [];
+    } else {
+        styleStore.fontList = theInputText.value
+            .split('\n')
+            .map((s) => s.trim())
+            .filter((s) => s !== '');
+    }
+    styleStore.save();
+    isShowEditorFontsDialog.value = false;
+};
 </script>
 
 <style scoped lang="scss">
@@ -110,6 +169,7 @@ const styleStore = useStyleStore();
         align-items: flex-start;
         margin: 10px;
         margin-top: 0;
+
         .title {
             text-align: left;
         }
@@ -118,6 +178,7 @@ const styleStore = useStyleStore();
     .information {
         margin: 10px;
         text-align: left;
+
         .line {
             text-indent: 1.2em;
             padding-bottom: 6px;

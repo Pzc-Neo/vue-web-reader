@@ -25,9 +25,12 @@ style:
   bgImage: 背景图片
   contentWidth: 内容宽度
   fontSize: 字体大小
+  fontFamily: 字体
   imageOpacity: 图片透明度
   lineHeight: 行高
-  source: 来源
+  website: 网站
+  editFontList: 编辑字体列表
+  downloadSoft: 下载可以获取系统字体列表的软件
 Instructions:
   l1: 1.推荐Edge浏览器，因为有很多在线的发音人。
   l2: Edge官网
