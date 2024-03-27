@@ -7,6 +7,9 @@ common:
   openFile: Open File
   fileTypeNotSupported: File type not supported
   noFileOpen: No file open
+  dropFileHere: Drop file here to open
+  notTextFile: Not a text file
+  error: Error
 reader:
   pause: Pause
   play: Play

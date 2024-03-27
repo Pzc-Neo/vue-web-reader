@@ -7,6 +7,9 @@ common:
   fileTypeNotSupported: 文件类型不支持
   noFileOpen: 没有打开文件
   openFile: 打开文件
+  dropFileHere: 拖放文件到此处打开
+  notTextFile: 不是文本文件
+  error: 错误
 reader:
   autoscroll: 自动滚动
   chapterSplitter: 章节分割符

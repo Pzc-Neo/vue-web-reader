@@ -16,6 +16,8 @@
 
 ![预览图](./screenshots/2.png)
 
+![预览图](./screenshots/3.png)
+
 ## 开发
 
 ```bash

@@ -3,15 +3,50 @@ import Header from '@/components/shared/Header.vue';
 import Footer from '@/components/shared/Footer.vue';
 import { useUserStore } from '@/store/user';
 import { useStyleStore } from './store/style';
+import { useReaderStore } from './store/reader';
+const { t } = useI18n();
 
 const userStore = useUserStore();
 const styleStore = useStyleStore();
+const readerStore = useReaderStore();
 
 userStore.initUser();
+
+const isShow = ref(false);
+const interval = ref();
+const handleDragOver = (e: DragEvent) => {
+    e.preventDefault();
+    isShow.value = true;
+    clearInterval(interval.value);
+    interval.value = setInterval(() => {
+        isShow.value = false;
+    }, 100);
+};
+const handleDragEnd = (e: DragEvent) => {
+    e.preventDefault();
+    isShow.value = false;
+};
+const handleDrop = (e: DragEvent) => {
+    e.preventDefault();
+    const files = e.dataTransfer?.files;
+    if (files && files.length > 0) {
+        readerStore.readFile(files[0], t);
+    }
+    isShow.value = false;
+};
 </script>
 <template>
     <Header />
-    <div class="main">
+    <div
+        class="main"
+        :draggable="true"
+        @drop="handleDrop"
+        @dragover="handleDragOver"
+        @dragend="handleDragEnd"
+    >
+        <div v-if="isShow" class="drop_zone">
+            {{ t('common.dropFileHere') }}
+        </div>
         <RouterView />
     </div>
     <Footer />
@@ -58,6 +93,22 @@ userStore.initUser();
 .main {
     flex: 1;
     overflow: hidden;
+
+    .drop_zone {
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 60px);
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        z-index: 10;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        font-weight: bold;
+    }
 }
 
 .sw-msg {

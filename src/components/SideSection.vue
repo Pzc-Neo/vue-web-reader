@@ -105,39 +105,9 @@ const onInputTextDialogConfirm = () => {
 };
 const upload = ref<UploadInstance>();
 const handleFileChange = (file: UploadFile, fileList: UploadFiles) => {
-    if (file.raw instanceof Blob) {
-        // 确保file.raw是Blob或File的实例
-        const reader_gb2312 = new FileReader();
-        reader_gb2312.readAsText(file.raw, 'gb2312'); // 现在这里不会报错，因为我们已经确认了file.raw是Blob或File
-        reader_gb2312.onload = (e: ProgressEvent<FileReader>) => {
-            if (!e.target) return;
-            const txtString = e.target.result as string;
-            if (txtString === null) return;
-            readerStore.fileName = file.name;
-            // utf-8 的 中文编码 正则表达式
-            // 说明：如果是乱码的话，应该是不会出现"的地得"的，因为这几个字比较常用
-            // (算是临时解决方案，因为不想专门引用一个库，先用着看看效果)
-            const patrn = /[的地得]/gi;
-            // 检测当前文本是否含有中文（如果没有，则当乱码处理）
-            // 两个格式的英文编码一样，所以纯英文文件也当成乱码再处理一次
-            if (!patrn.exec(txtString.substring(0, 1000))) {
-                let reader_utf8 = new FileReader();
-                // 再拿一次纯文本，这一次拿到的文本一定不会乱码
-                reader_utf8.readAsText(file.raw as Blob, 'utf-8');
-                reader_utf8.onload = (e2: ProgressEvent<FileReader>) => {
-                    if (e2.target === null) return;
-                    const txtString2 = e2.target.result as string;
-                    readerStore.updateSourceText(txtString2);
-                    upload.value?.clearFiles();
-                };
-            } else {
-                readerStore.updateSourceText(txtString);
-                upload.value?.clearFiles();
-            }
-        };
-    } else {
-        console.error(t('common.fileTypeNotSupported'));
-    }
+    readerStore.readFile(file, t, () => {
+        upload.value?.clearFiles();
+    });
 };
 const handleClickChapter = (index: number) => {
     readerStore.updateChapterIndex(index);
