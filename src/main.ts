@@ -11,6 +11,7 @@ import 'uno.css';
 import '@/assets/styles/index.scss';
 // If you want to use ElMessage, import it.
 import 'element-plus/theme-chalk/src/message.scss';
+import 'element-plus/theme-chalk/el-loading.css';
 
 async function main() {
     const app = createApp(App);

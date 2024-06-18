@@ -1,15 +1,22 @@
+Instructions:
+  l1: 1.推荐Edge浏览器，因为有很多在线的发音人。
+  l2: Edge官网
+  l3: 2.在发音人列表搜索 Chinese，就能筛选出中文发音人。
+  l4: 3.包含 Online 的就是在线发音人。
+  l5: 4.在线的发音人有时候不太稳定，可能会读着读着就停了。重新点击一下刚刚朗读到的行就会继续读了。（离线的发音人就不会这样。）
 browserNotSupportSpeech: 浏览器不支持语音朗读
 common:
   appName: 城墨小说朗读
   cancel: 取消
   confirm: 确定
+  dropFileHere: 拖放文件到此处打开
+  error: 错误
   feedback: 反馈
   fileTypeNotSupported: 文件类型不支持
   noFileOpen: 没有打开文件
-  openFile: 打开文件
-  dropFileHere: 拖放文件到此处打开
   notTextFile: 不是文本文件
-  error: 错误
+  openFile: 打开文件
+  readingFile: 正在读取文件
 reader:
   autoscroll: 自动滚动
   chapterSplitter: 章节分割符
@@ -27,16 +34,10 @@ style:
   Instructions: 说明
   bgImage: 背景图片
   contentWidth: 内容宽度
-  fontSize: 字体大小
+  downloadSoft: 下载可以获取系统字体列表的软件
+  editFontList: 编辑字体列表
   fontFamily: 字体
+  fontSize: 字体大小
   imageOpacity: 图片透明度
   lineHeight: 行高
   website: 网站
-  editFontList: 编辑字体列表
-  downloadSoft: 下载可以获取系统字体列表的软件
-Instructions:
-  l1: 1.推荐Edge浏览器，因为有很多在线的发音人。
-  l2: Edge官网
-  l3: 2.在发音人列表搜索 Chinese，就能筛选出中文发音人。
-  l4: 3.包含 Online 的就是在线发音人。
-  l5: 4.在线的发音人有时候不太稳定，可能会读着读着就停了。重新点击一下刚刚朗读到的行就会继续读了。（离线的发音人就不会这样。）

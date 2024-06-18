@@ -1,4 +1,6 @@
-import { ElMessage, ElMessageBox, UploadFile } from 'element-plus';
+import { toast } from '@/utils/toast';
+import { ElLoading, ElMessage, ElMessageBox, UploadFile } from 'element-plus';
+
 import localforage from 'localforage';
 import { defineStore } from 'pinia';
 import { ComposerTranslation, useI18n } from 'vue-i18n';
@@ -236,11 +238,18 @@ export const useReaderStore = defineStore({
             t: ComposerTranslation,
             callback?: () => void,
         ) {
+            // const loading =ElLoading.service({ fullscreen: true })
+             const loading = ElLoading.service({
+                lock: true,
+                text:t("common.readingFile"),
+                background: 'rgba(0, 0, 0, 0.7)',
+            })
             if (!(file instanceof File)) {
                 file = file.raw as File;
             }
             // 如果不是文本文件，则不处理
             if (file.type.indexOf('text') === -1) {
+                loading.close()
                 ElMessage({
                     message: t('common.notTextFile'),
                     type: 'error',
@@ -269,10 +278,12 @@ export const useReaderStore = defineStore({
                         if (e2.target === null) return;
                         const txtString2 = e2.target.result as string;
                         this.updateSourceText(txtString2);
+                        loading.close()
                         callback && callback();
                     };
                 } else {
                     this.updateSourceText(txtString);
+                    loading.close()
                     callback && callback();
                 }
             };

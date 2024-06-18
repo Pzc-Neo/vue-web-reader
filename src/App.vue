@@ -14,6 +14,9 @@ userStore.initUser();
 
 const isShow = ref(false);
 const interval = ref();
+const handleDragStart =   (e: DragEvent) => {
+    e.preventDefault();
+};
 const handleDragOver = (e: DragEvent) => {
     e.preventDefault();
     isShow.value = true;
@@ -43,6 +46,7 @@ const handleDrop = (e: DragEvent) => {
         @drop="handleDrop"
         @dragover="handleDragOver"
         @dragend="handleDragEnd"
+        @dragstart="handleDragStart"
     >
         <div v-if="isShow" class="drop_zone">
             {{ t('common.dropFileHere') }}
