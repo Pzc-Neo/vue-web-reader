@@ -20,7 +20,8 @@ common:
 reader:
   autoscroll: 自动滚动
   chapterSplitter: 章节分割符
-  chapterWordCount: 章节字数
+  chapterWordCount: 本章字数
+  chapterCount: 总章节数
   editChapterSplitter: 编辑章节分割符
   next: 下一个
   pause: 暂停
@@ -38,6 +39,6 @@ style:
   editFontList: 编辑字体列表
   fontFamily: 字体
   fontSize: 字体大小
-  imageOpacity: 图片透明度
+  imageOpacity: 图片不透明度
   lineHeight: 行高
   website: 网站

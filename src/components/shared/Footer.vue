@@ -18,7 +18,8 @@ const onSpeakClick = () => {
 <template>
     <div class="footer text-primary-dark dark:text-ternary-light">
         <div class="left">
-            {{ t('reader.chapterWordCount') }}：{{ readerStore.wordCount }}
+            {{ t('reader.chapterCount') }} {{ readerStore.chapterCount }}&nbsp;&nbsp;&nbsp;
+            {{ t('reader.chapterWordCount') }} {{ readerStore.wordCount }}
         </div>
         <div class="center">
             <div class="control_button_group">

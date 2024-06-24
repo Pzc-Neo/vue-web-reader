@@ -57,7 +57,7 @@ export const useReaderStore = defineStore({
             fileName: t('common.noFileOpen'),
             speakText: '',
             sourceText: '',
-            splitSymbel: '。？！…,.?',
+            splitSymbel: '。？！；…,.?!;',
             paragraphSplitSymbel: '\n\t\n',
             currentChapterSplitSymbel: '第.*章',
             chapterSplitSymbels: [
@@ -110,6 +110,9 @@ export const useReaderStore = defineStore({
         currentChapterLines: (state: IReaderState) => {
             if (!state.speakChapters[state.chapterIndex]) return;
             return state.speakChapters[state.chapterIndex].lines;
+        },
+        chapterCount: (state: IReaderState) => {
+            return state.speakChapters.length;
         },
         wordCount: (state: IReaderState) => {
             if (!state.speakChapters[state.chapterIndex]) return 0;

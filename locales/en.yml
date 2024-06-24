@@ -26,6 +26,7 @@ reader:
   autoscroll: Auto scroll
   chapterSplitter: Chapter Splitter
   chapterWordCount: Chapter Words
+  chapterCount: Chapter Count
   editChapterSplitter: Edit Chapter Splitter
   next: Next
   pause: Pause

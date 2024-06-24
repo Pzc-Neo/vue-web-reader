@@ -64,7 +64,7 @@ const onSpeakRateChange = () => {
         <div class="main_section">
             <div class="toolbar">
                 <div class="speakers flex flex-row flex-items-center">
-                    <div class="w80px">{{ t('reader.speaker') }}：</div>
+                    <div class="w70px">{{t('reader.speaker')}}</div>
                     <el-select
                         v-model="readerStore.selectedVoiceIndex"
                         class="voice_select_box"

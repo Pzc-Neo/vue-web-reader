@@ -43,6 +43,7 @@
                 </el-button>
             </div>
         </div>
+        <el-backtop class="backtop" target=".chapter_list" />
         <div class="chapter_list">
             <div
                 v-for="(chapter, index) in readerStore.speakChapters"
@@ -119,10 +120,18 @@ const handleClickChapter = (index: number) => {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    position: relative;
+    .backtop {
+        position: absolute;
+        bottom: 20px !important;
+        right: 20px !important;
+    }
 
     .btn_group,
     .chapter_list {
         padding-left: 12px;
+        overflow-x: hidden;
+        position: relative;
     }
 
     .btn_group {
