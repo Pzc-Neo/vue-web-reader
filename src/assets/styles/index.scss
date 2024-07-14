@@ -15,3 +15,11 @@ a:hover {
 :root {
     --link-color: #42b983;
 }
+
+// Header.vue 中的元素
+.drop_down_view {
+    .el-switch__label {
+        width: 5em;
+        text-align: left;
+    }
+}

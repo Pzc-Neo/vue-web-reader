@@ -31,7 +31,7 @@ reader:
   next: Next
   pause: Pause
   play: Play
-  previous: Previous
+  previous: Prev
   rate: Rate
   resume: Resume
   speaker: Speaker

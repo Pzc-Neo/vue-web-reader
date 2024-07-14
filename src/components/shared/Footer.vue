@@ -18,7 +18,8 @@ const onSpeakClick = () => {
 <template>
     <div class="footer text-primary-dark dark:text-ternary-light">
         <div class="left">
-            {{ t('reader.chapterCount') }} {{ readerStore.chapterCount }}&nbsp;&nbsp;&nbsp;
+            {{ t('reader.chapterCount') }}
+            {{ readerStore.chapterCount }}&nbsp;&nbsp;&nbsp;
             {{ t('reader.chapterWordCount') }} {{ readerStore.wordCount }}
         </div>
         <div class="center">
@@ -39,8 +40,16 @@ const onSpeakClick = () => {
             </div>
         </div>
         <div class="right">
-            <span>{{ t('common.feedback') }}：</span
-            ><a href="mailto:Pzc_Neo@foxmail.com">Pzc_Neo@foxmail.com</a>
+            <span>{{ t('common.feedback') }}：</span>
+            <a
+                class="github"
+                :circle="true"
+                href="https://github.com/Pzc-Neo/vue-web-reader"
+                target="_blank"
+            >
+                <div i-carbon-logo-github></div>
+            </a>
+            <a href="mailto:Pzc_Neo@foxmail.com">Pzc_Neo@foxmail.com</a>
         </div>
     </div>
 </template>
@@ -52,5 +61,12 @@ const onSpeakClick = () => {
     font-size: 16px;
     padding: 0 14px;
     border-top: 1px solid var(--main-border-color);
+    .right {
+        display: flex;
+        align-items: center;
+        .github {
+            margin-right: 5px;
+        }
+    }
 }
 </style>

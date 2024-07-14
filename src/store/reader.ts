@@ -79,7 +79,7 @@ export const useReaderStore = defineStore({
             isSpeaking: null,
             utterance: new SpeechSynthesisUtterance(),
             currentLineSelector:
-                '.main_section .content_container .line.active',
+                '.text_viewer .content .line.active',
             currentChapterSelector: '.chapter_list .chapter.active',
         };
     },

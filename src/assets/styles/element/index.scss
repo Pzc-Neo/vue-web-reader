@@ -1,3 +1,8 @@
+// :root {
+//     // --main-text-color: black;
+//     --el-switch-on-color: red;
+//     // --main-border-color: #e9e9e9;
+// }
 $--colors: (
     'primary': (
         'base': green,
@@ -25,7 +30,7 @@ $--colors: (
     $colors: $--colors,
     $button-padding-horizontal: (
         'default': 50px,
-    ),
+    )
 );
 
 // if you want to import all
